@@ -18,8 +18,10 @@ ENTRY_TEXT = (
 
 def main() -> None:
     os.makedirs("/output", exist_ok=True)
+    text = ENTRY_TEXT.strip()
+    assert len(text) <= 400, "entry exceeds the competition's 400-char cap"
     with open("/output/entry.txt", "w", encoding="utf-8") as f:
-        f.write(ENTRY_TEXT)
+        f.write(text)
 
 
 if __name__ == "__main__":
